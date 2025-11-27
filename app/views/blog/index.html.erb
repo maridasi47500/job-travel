@@ -40,19 +40,21 @@ Continue reading
 
 <img class="img " height="250" role="img" width="200" src="/uploads/<%=x.pic%>"/> </div> </div> </div> 
 
-</div>
 
 
-</div> 
+
+
 <%end%>
+</div> 
+
 
 
 <div class="row g-5"> <div class="col-md-8"> <h3 class="pb-4 mb-4 fst-italic border-bottom">
 From the Firehose
 </h3> 
 
-<%@post4.each do |h|%>
-<article class="blog-post"> <h2 class="display-5 link-body-emphasis mb-1"><%=h.title%></h2> <p class="blog-post-meta">January 1, 2021 by <a href=""><%=post.user.name%></a></p> <%=simple_format(x.descrition)%> </article> 
+<%@post4.each do |x|%>
+<article class="blog-post"> <h2 class="display-5 link-body-emphasis mb-1"><%=x.title%></h2> <p class="blog-post-meta">January 1, 2021 by <a href=""><%=x.user.name%></a></p> <%=simple_format(x.content)%> </article> 
 <%end%>
 
 
@@ -72,6 +74,6 @@ From the Firehose
 
 <%@post5.each do |x|%>
 <li><a href="#"><%=x%></a></li> 
-<%endM>
+<%end%>
 
 </ol> </div> <div class="p-4"> <h4 class="fst-italic">Elsewhere</h4> <ol class="list-unstyled"> <li><a href="#">GitHub</a></li> <li><a href="#">Social</a></li> <li><a href="#">Facebook</a></li> </ol> </div> </div> </div> </div> </main> <footer class="py-5 text-center text-body-secondary bg-body-tertiary"> <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://x.com/mdo">@mdo</a>.</p> <p class="mb-0"> <a href="#">Back to top</a> </p> </footer> 
