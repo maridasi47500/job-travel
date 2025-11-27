@@ -1,0 +1,86 @@
+<div id="<%= dom_id resume %>">
+<table cellspacing="20px">
+    <tr>
+      <td><img width="50%" height="50%" src="/uploads/<%=resume.user.pic%>" /></td>
+      <td><h1><%=resume.user.name%></h1>
+      <p>
+        <em><%=resume.job.name%></em></a>
+      </p>
+      <p>
+        <%=resume.description%>
+      </p>
+    </td>
+    </tr>
+  </table>
+
+  <hr>
+
+<%if resume.educations.length > 0%>
+
+  <h3>Education</h3>
+  <ul>
+<%resume.educations.each do |x|%>
+    <li><%=x.name%></li>
+<%end%>
+    <li>Obafemi Awolowo University</li>
+    <li>Police Secondary School Akure</li>
+  </ul>
+  <hr>
+<%end%>
+
+<%if resume.workexperiences.length > 0%>
+
+  <h3>Work Experience</h3>
+  <table cellspacing="10px">
+    <thead>
+
+      <tr>
+        <th>Date</th>
+        <th>Work</th>
+      </tr>
+
+    </thead>
+    <tbody>
+<%resume.workexperiences.each do |x|%>
+      <tr>
+        <td><%=x.date%></td>
+        <td><%=x.work%> (<%=x.company%>)</td>
+      </tr>
+<%end%>
+    </tbody>
+  </table>
+<hr>
+<%end%>
+<%if resume.certifications.length > 0%>
+
+
+  <h3>Licenses & Certification
+</h3>
+<%resume.certifications.each do |x|%>
+  <ul>
+<em><strong>Pirple</strong></em>
+
+    <li><%=x.name%></li>
+    <li>Issued <%=x.issued%>. <%=!x.expiration.nil? ? x.expiration :  "No Expiration Date"%></li>
+  </ul>
+<%end%>
+  <hr>
+<%end%>
+<%if resume.skills.length > 0%>
+  <h3>Skills</h3>
+      <table cellspacing="10px">
+<%resume.skills.each do |x|%>
+          <tr>
+            <td><%=x.name%></td>
+            <td><%=x.description%></td>
+          </tr>
+<%end%>
+      </table>
+
+  <hr />
+<%end%>
+
+
+
+
+</div>

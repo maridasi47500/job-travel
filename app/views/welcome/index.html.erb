@@ -1,0 +1,8 @@
+<%if user_signed_in?%>  
+<%= render current_user.resumes%>
+<%else%>
+<p>
+vous n'êtes pas connecté(e)
+</p>
+<%end%>
+

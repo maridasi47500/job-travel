@@ -1,0 +1,81 @@
+<%= form_with(model: resume) do |form| %>
+  <% if resume.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+
+      <ul>
+        <% resume.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :job_id, style: "display: block" %>
+    <%= form.select :job_id, Job.all.collect {|h|[h.name, h.id]} %>
+  </div>
+  Educations
+  <ul>
+    <%= form.fields_for :educations do |addresses_form| %>
+      <li>
+        <%= addresses_form.label :name %>
+        <%= addresses_form.text_field :name %>
+
+      </li>
+    <% end %>
+  </ul>
+  work experiences
+  <ul>
+    <%= form.fields_for :workexperiences do |addresses_form| %>
+      <li>
+        <%= addresses_form.label :date %>
+        <%= addresses_form.date_field :date %>
+        <%= addresses_form.label :work %>
+        <%= addresses_form.text_field :work %>
+        <%= addresses_form.label :company %>
+        <%= addresses_form.text_field :company %>
+
+      </li>
+    <% end %>
+  </ul>
+  licences and certifications
+  <ul>
+    <%= form.fields_for :certifications do |addresses_form| %>
+      <li>
+        <%= addresses_form.label :name %>
+        <%= addresses_form.text_field :name %>
+        <%= addresses_form.label :issued %>
+        <%= addresses_form.date_field :issued %>
+        <%= addresses_form.label :expiration %>
+        <%= addresses_form.date_field :expiration %>
+
+      </li>
+    <% end %>
+  </ul>
+  skills
+  <ul>
+    <%= form.fields_for :skills do |addresses_form| %>
+      <li>
+        <%= addresses_form.label :name %>
+        <%= addresses_form.text_field :name %>
+        <%= addresses_form.label :description %>
+        <%= addresses_form.text_area :description %>
+
+      </li>
+    <% end %>
+  </ul>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

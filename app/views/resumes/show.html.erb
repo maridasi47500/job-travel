@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @resume %>
+
+<div>
+  <%= link_to "add certification to this resume", certification_resume_path(@resume) %> |
+  <%= link_to "add work epxerience to this resume", workexperience_resume_path(@resume) %> |
+  <%= link_to "add a skill to this resume", skill_resume_path(@resume) %> |
+  <%= link_to "add an education to this resume", education_resume_path(@resume) %> |
+  <%= link_to "Edit this resume", edit_resume_path(@resume) %> |
+  <%= link_to "Back to resumes", resumes_path %>
+
+  <%= button_to "Destroy this resume", @resume, method: :delete %>
+</div>
